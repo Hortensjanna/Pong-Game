@@ -1,5 +1,6 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 
+screen = Screen()
 
 class Ball(Turtle):
 
@@ -7,7 +8,7 @@ class Ball(Turtle):
         super().__init__()
         self.penup()
         self.color('white')
-        self.shape('circle')
+        self.shape('square')
         self.x_move = 10
         self.y_move = 10
 
@@ -16,6 +17,15 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
-    def bounce(self):
+    def bounce_y(self):
         self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
+
+    def reset_position(self):
+        self.goto(0, 0)
+
+
+
 
